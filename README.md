@@ -1,3 +1,3 @@
-# Performance improvements
+# Improving SEO metadata
 
-_Last updated: 2025-02-16T17:31:29.669Z_
+_Last updated: 2025-02-16T17:31:59.647Z_
