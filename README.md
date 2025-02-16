@@ -1,3 +1,3 @@
-# Enhancing webhook reliability
+# Reducing bundle size
 
-_Last updated: 2025-02-16T17:20:29.413Z_
+_Last updated: 2025-02-16T17:20:59.499Z_
