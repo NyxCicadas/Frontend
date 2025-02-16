@@ -1,3 +1,3 @@
-# Fixing typos in documentation
+# Fixing UI glitches
 
-_Last updated: 2025-02-16T18:46:30.874Z_
+_Last updated: 2025-02-16T18:47:00.934Z_
