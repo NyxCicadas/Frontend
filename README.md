@@ -1,3 +1,3 @@
-# Reducing bundle size
+# Improving API documentation
 
-_Last updated: 2025-02-16T12:44:25.162Z_
+_Last updated: 2025-02-16T12:44:55.173Z_
