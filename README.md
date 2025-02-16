@@ -1,3 +1,3 @@
-# Improving function modularity
+# Adding better exception handling
 
-_Last updated: 2025-02-16T15:31:57.678Z_
+_Last updated: 2025-02-16T15:32:27.663Z_
