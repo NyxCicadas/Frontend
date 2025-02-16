@@ -1,3 +1,3 @@
-# Updating project metadata
+# Fixing permission issues
 
-_Last updated: 2025-02-16T14:51:57.256Z_
+_Last updated: 2025-02-16T14:52:27.353Z_
