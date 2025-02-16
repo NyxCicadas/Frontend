@@ -1,3 +1,3 @@
-# Fixing typos in documentation
+# Reducing memory usage
 
-_Last updated: 2025-02-16T22:22:04.679Z_
+_Last updated: 2025-02-16T22:22:34.652Z_
