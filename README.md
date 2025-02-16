@@ -1,3 +1,3 @@
-# Enhancing websocket stability
+# Fixing typos in documentation
 
-_Last updated: 2025-02-16T17:16:59.525Z_
+_Last updated: 2025-02-16T17:17:29.414Z_
