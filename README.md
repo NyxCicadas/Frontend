@@ -1,3 +1,3 @@
-# Fixing race conditions in async code
+# Fixing missing semicolons
 
-_Last updated: 2025-02-16T17:01:29.102Z_
+_Last updated: 2025-02-16T17:01:59.110Z_
