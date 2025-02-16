@@ -1,3 +1,3 @@
-# Code optimization
+# Fixing race conditions in async code
 
-_Last updated: 2025-02-16T14:46:27.266Z_
+_Last updated: 2025-02-16T14:46:57.308Z_
