@@ -1,3 +1,3 @@
-# Updating outdated references
+# Improving keyboard accessibility
 
-_Last updated: 2025-02-16T22:18:04.568Z_
+_Last updated: 2025-02-16T22:18:34.629Z_
