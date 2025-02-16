@@ -1,3 +1,3 @@
-# Improving keyboard accessibility
+# Improving application startup time
 
-_Last updated: 2025-02-16T17:03:29.162Z_
+_Last updated: 2025-02-16T17:03:59.168Z_
