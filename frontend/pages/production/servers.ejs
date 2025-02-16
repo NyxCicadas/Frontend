@@ -1,0 +1,120 @@
+<html lang="en">
+
+<head>
+    <title>
+        List Servers - <%= extra.name %>
+    </title>
+    <%- include('./components/sources') %>
+</head>
+
+<body class="g-sidenav-show bg-black-100 dark-version">
+    <div class="min-height-300 bs-dark position-absolute w-100"></div>
+    <%- include('./elements/listServers/sidebar') %>
+        <main class="main-content position-relative border-radius-lg ps">
+            <!-- Navbar -->
+            <%- include('./components/navbar') %>
+                <!-- End Navbar -->
+                <div class="container-fluid py-4">
+                    <%- include('./components/header') %> <%- include('./components/onload') %>
+                            <div class="container-fluid row mt-4">
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <!-- Dark Chart -->
+                                        <div class="card">
+                                            <div class="card-header border-0">
+                                                <div class="row align-items-center">
+                                                    <div class="col">
+                                                        <h3 class="mb-0">Your Servers</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table align-items-center table-flush">
+                                                    <thead class="thead-light">
+                                                        <tr>
+                                                            <th scope="col">Name</th>
+                                                            <th scope="col">Memory</th>
+                                                            <th scope="col">Disk</th>
+                                                            <th scope="col">CPU</th>
+                                                            <th scope="col">Edit</th>
+                                                            <th scope="col">Delete</th>
+                                                            <% if (settings.api.client.allow.renewsuspendsystem.enabled)
+                                                                { %>
+                                                                <th scope="col">Renew</th>
+                                                                <% } %>
+                                                        </tr>
+                                                    </thead>
+                                                    <% for (let i=0, len=pterodactyl.relationships.servers.data.length;
+                                                        i < len; i++) { %>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <%=
+                                                                        pterodactyl.relationships.servers.data[i].attributes.name.length>
+                                                                        15 ?
+                                                                        pterodactyl.relationships.servers.data[i].attributes.name.slice(0,
+                                                                        12) + "..." :
+                                                                        pterodactyl.relationships.servers.data[i].attributes.name
+                                                                        %>
+                                                                </td>
+                                                                <td>
+                                                                    <%= pterodactyl.relationships.servers.data[i].attributes.limits.memory
+                                                                        %>MB
+                                                                </td>
+                                                                <td>
+                                                                    <%= pterodactyl.relationships.servers.data[i].attributes.limits.disk
+                                                                        %>MB
+                                                                </td>
+                                                                <td>
+                                                                    <%= pterodactyl.relationships.servers.data[i].attributes.limits.cpu
+                                                                        %>%
+                                                                </td>
+                                                                <td>
+                                                                    <a
+                                                                        href="/servers/edit?id=<%= pterodactyl.relationships.servers.data[i].attributes.id %>">
+                                                                        <button class="btn btn-icon btn-primary"
+                                                                            type="button">
+                                                                            <span class="btn-inner--icon"><i
+                                                                                    class="fas fa-edit"></i></span>
+                                                                        </button>
+                                                                    </a>
+                                                                </td>
+                                                                <td>
+                                                                    <a
+                                                                        href="/delete?id=<%= pterodactyl.relationships.servers.data[i].attributes.id %>">
+                                                                        <button class="btn btn-icon btn-primary"
+                                                                            type="button">
+                                                                            <span class="btn-inner--icon"><i
+                                                                                    class="fas fa-trash"></i></span>
+                                                                        </button>
+                                                                    </a>
+                                                                </td>
+                                                                <% if
+                                                                    (settings.api.client.allow.renewsuspendsystem.enabled)
+                                                                    { %>
+                                                                    <td>
+                                                                        <a
+                                                                            href="/renew?id=<%= pterodactyl.relationships.servers.data[i].attributes.id %>">
+                                                                            <button class="btn btn-icon btn-primary"
+                                                                                type="button">
+                                                                                <span class="btn-inner--icon"><i
+                                                                                        class="fas fa-sync-alt"></i></span>
+                                                                            </button>
+                                                                        </a>
+                                                                    </td>
+                                                                    <% } %>
+                                                            </tr>
+                                                        </tbody>
+                                                        <% } %>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <%- include('./components/footer') %>
+                                </div>
+                                <%- include('./elements/changePassword') %> <%- include('./elements/fixedPlugin') %>
+        </main>
+        <%- include('./components/scripts') %>
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+<html lang="en">
+
+<head>
+  <title>
+    Home - <%= extra.name %>
+  </title>
+  <%- include('./components/sources') %>
+
+</head>
+
+<body class="bg-black-100 dark-version">
+  <% if (!userinfo) { %>
+    <div id="login-section" class="container position-sticky z-index-sticky top-0">
+      <div class="row">
+        <div class="col-12">
+          <!-- Navbar -->
+          <nav
+            class="navbar navbar-expand-lg blur border-radius-lg top-0 z-index-3 shadow position-absolute mt-4 py-2 start-0 end-0 mx-4">
+            <div class="container-fluid">
+              <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-dark font-weight-bolder" href="/">
+                <%= extra.name %>
+              </a>
+              <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon mt-2">
+                  <span class="navbar-toggler-bar bar1"></span>
+                  <span class="navbar-toggler-bar bar2"></span>
+                  <span class="navbar-toggler-bar bar3"></span>
+                </span>
+              </button>
+              <div class="collapse navbar-collapse" id="navigation">
+                <ul class="navbar-nav mx-auto">
+                  <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="/dashboard">
+                      <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
+                      Dashboard
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link me-2" href="/panel" target="_blank">
+                      <i class="fa fa-gamepad opacity-6 text-dark me-1"></i>
+                      Game Panel
+                    </a>
+                  </li>
+                </ul>
+                <ul class="navbar-nav d-lg-block d-none">
+                  <li class="nav-item">
+                    <a href="<%= extra.discord.invite_link%>" target="_blank" class=" btn btn-sm mb-0 me-1
+                      btn-primary">Discord</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <!-- End Navbar -->
+        </div>
+      </div>
+    </div>
+    <main class="main-content  mt-0">
+      <section>
+        <div class="page-header min-vh-100">
+          <div class="container">
+            <div class=" d-flex align-items-center justify-content-center row">
+              <div class=" col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
+                <div class="card z-index-0">
+                  <div class="text-center pt-4 ">
+                    <h5>Sign In</h5>
+                  </div>
+                  <div class="row px-xl-5 px-sm-4 px-3">
+
+                    <div class="mt-2 position-relative text-center">
+                      <p class="mb-0">
+                        By clicking on "Login with discord", You agree to our <a href="/terms">Terms</a> &amp;
+                        Conditions and <a href="/privacy">Privacy Policy</a>.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <form role="form">
+                      <div class="form-check form-check-info text-start">
+                        <input class="form-check-input" type="checkbox" value="" id="agreeCheckbox">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          I agree the <a href="/terms" target="_blank" class="text-dark font-weight-bolder">Terms and
+                            Conditions</a>
+                        </label>
+                      </div>
+                      <div class="text-center">
+                        <button type="button" id="dashboardButton"
+                          class="btn btn-lg btn-primary btn-lg w-100 my-4 mb-2 animated-button"
+                          onclick="redirectToDashboard()">
+                          <i class="fab fa-discord" aria-hidden="true"></i>
+                          Login with Discord
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      let state = true;
+      function redirectToDashboard() {
+        // Function to be executed when the dashboard button is clicked
+        if (!state) {
+          window.location.href = "/dashboard";
+        } else {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener("mouseenter", Swal.stopTimer);
+              toast.addEventListener("mouseleave", Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: "error",
+            title: "User didn't accepted terms.",
+          });
+        }
+      }
+
+
+      document
+        .getElementById("agreeCheckbox")
+        .addEventListener("change", function () {
+          // Enable the dashboard button if the checkbox is checked, otherwise disable it
+          if (this.checked) {
+            state = false;
+          } else {
+            state = true;
+          }
+        });
+
+    </script>
+    <% } else { %>
+      <script>
+        window.location.href = "/dashboard";
+      </script>
+      <% } %>
+        <%- include('./components/scripts') %>
+</body>
+
+</html>

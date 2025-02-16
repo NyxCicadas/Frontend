@@ -1,0 +1,85 @@
+<html lang="en">
+
+<head>
+    <title>
+        Join For Rewards - <%= extra.name %>
+    </title>
+    <%- include('./components/sources') %>
+
+</head>
+
+<body class="g-sidenav-show bg-black-100 dark-version">
+    <% let ram=0; let disk=0; let cpu=0; let servers=pterodactyl.relationships.servers.data.length; for (let i=0,
+        len=pterodactyl.relationships.servers.data.length; i < len; i++) { ram=ram + (typeof
+        pterodactyl.relationships.servers.data[i].attributes.limits.memory=="number" ?
+        pterodactyl.relationships.servers.data[i].attributes.limits.memory : 0); disk=disk + (typeof
+        pterodactyl.relationships.servers.data[i].attributes.limits.disk=="number" ?
+        pterodactyl.relationships.servers.data[i].attributes.limits.disk : 0); cpu=cpu + (typeof
+        pterodactyl.relationships.servers.data[i].attributes.limits.cpu=="number" ?
+        pterodactyl.relationships.servers.data[i].attributes.limits.cpu : 0); } %>
+        <div class="min-height-300 bs-dark position-absolute w-100"></div>
+        <%- include('./elements/dashboard/sidebar') %>
+            <main class="main-content position-relative border-radius-lg ps">
+                <!-- Navbar -->
+                <%- include('./components/navbar') %>
+                    <!-- End Navbar -->
+                    <div class="container-fluid py-4">
+                        <%- include('./components/header') %> <%- include('./components/onload') %>
+                                <div class="container-fluid row mt-4">
+                                    <div class="row">
+                                        <div class="col-xl-12">
+                                            <!-- Dark Chart -->
+                                            <div class="row">
+                                                <center>
+                                                    <div class="card row mt-4">
+                                                        <div class="card-body">
+                                                            <h4 class="card-title">
+                                                                <%= extra.name %> #1 Hosting
+                                                            </h4>
+                                                            <p class="card-description"> Join this server to
+                                                                receive: <br>
+                                                                <%= settings.api.client.j4r.every.cpu %>% CPU,
+                                                                    <%= settings.api.client.j4r.every.ram %>MB
+                                                                        RAM & <%= settings.api.client.j4r.every.disk /
+                                                                            1024 %>GB Disk
+                                                            </p>
+                                                            <form class="forms-sample">
+                                                                <a role="button" class="badge badge-outline-green"
+                                                                    style="padding: 12px 30px; font-size: 15px;"
+                                                                    href="<%= extra.discord.invite_link%>">Join
+                                                                    Server</a>
+                                                                <br><br>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </center>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <center class="row mt-4">
+                                        <p>
+                                            <%= extra.name %>, needs to check if you actually joined the server
+                                                so you
+                                                will have to logout and login again, <a style="color: #1d86eb"
+                                                    href="/logout">Click here</a> to Logout
+                                        </p>
+                                    </center>
+                                    <center class="row mt-4">
+                                        <p>To Affiliate Your Server Here, Contact us On Discord!</p>
+                                    </center>
+                                    <!-- Footer -->
+                                    <footer class="footer pt-0">
+                                        <div class="row align-items-center justify-content-lg-between">
+                                            <div class="">
+                                            </div>
+                                            <div class="col-lg-6">
+                                            </div>
+                                        </div>
+                                        <%- include('./components/footer') %>
+                                </div>
+                                <%- include('./elements/changePassword') %> <%- include('./elements/fixedPlugin') %>
+            </main>
+            <%- include('./components/scripts') %>
+</body>
+</html>

@@ -1,0 +1,349 @@
+<html lang="en">
+
+<head>
+    <title>
+        Store - <%= extra.name %>
+    </title>
+    <%- include('./components/sources') %>
+</head>
+
+<body class="g-sidenav-show bg-black-100 dark-version">
+    <% let ram=0; let disk=0; let cpu=0; let servers=pterodactyl.relationships.servers.data.length; for (let i=0,
+        len=pterodactyl.relationships.servers.data.length; i < len; i++) { ram=ram + (typeof
+        pterodactyl.relationships.servers.data[i].attributes.limits.memory=="number" ?
+        pterodactyl.relationships.servers.data[i].attributes.limits.memory : 0); disk=disk + (typeof
+        pterodactyl.relationships.servers.data[i].attributes.limits.disk=="number" ?
+        pterodactyl.relationships.servers.data[i].attributes.limits.disk : 0); cpu=cpu + (typeof
+        pterodactyl.relationships.servers.data[i].attributes.limits.cpu=="number" ?
+        pterodactyl.relationships.servers.data[i].attributes.limits.cpu : 0); } %>
+        <div class="min-height-300 bs-dark position-absolute w-100"></div>
+        <%- include('./elements/resources/sidebar') %>
+
+            <main class="main-content position-relative border-radius-lg ps">
+                <!-- Navbar -->
+                <%- include('./components/navbar') %>
+                    <!-- End Navbar -->
+                    <div class="container-fluid py-4">
+                        <%- include('./components/header') %> <%- include('./components/onload') %>
+                                <div class="container-fluid row mt-4">
+                                    <div class="row">
+                                        <div class="col-xl-12">
+                                            <!-- Dark Chart -->
+                                            <div class="card">
+                                                <div class="card-header border-0">
+                                                    <div class="row align-items-center">
+                                                        <div class="col">
+                                                            <h3 class="mb-0">Store</h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <form action="/buyram">
+                                                        <div class="form-group">
+                                                            <label for="buyram">RAM</label>
+                                                            <select class="form-control form-control-alternative"
+                                                                name="amount">
+                                                                <option value=1>
+                                                                    <%= settings.api.client.coins.store.ram.per %>MB RAM
+                                                                        -
+                                                                        $<%= settings.api.client.coins.store.ram.cost %>
+                                                                            <%= settings.api.client.coins.store.ram.cost==1
+                                                                                ? "" : "s" %>
+                                                                </option>
+                                                                <option value=2>
+                                                                    <%= settings.api.client.coins.store.ram.per * 2 %>MB
+                                                                        RAM -
+                                                                        $<%= settings.api.client.coins.store.ram.cost *
+                                                                            2 %>
+                                                                </option>
+                                                                <option value=3>
+                                                                    <%= settings.api.client.coins.store.ram.per * 3 %>MB
+                                                                        RAM -
+                                                                        $<%= settings.api.client.coins.store.ram.cost *
+                                                                            3 %>
+                                                                </option>
+                                                                <option value=4>
+                                                                    <%= settings.api.client.coins.store.ram.per * 4 %>MB
+                                                                        RAM -
+                                                                        $<%= settings.api.client.coins.store.ram.cost *
+                                                                            4 %>
+                                                                </option>
+                                                                <option value=5>
+                                                                    <%= settings.api.client.coins.store.ram.per * 5 %>MB
+                                                                        RAM -
+                                                                        $<%= settings.api.client.coins.store.ram.cost *
+                                                                            5 %>
+                                                                </option>
+                                                                <option value=6>
+                                                                    <%= settings.api.client.coins.store.ram.per * 6 %>MB
+                                                                        RAM -
+                                                                        $<%= settings.api.client.coins.store.ram.cost *
+                                                                            6 %>
+                                                                </option>
+                                                                <option value=7>
+                                                                    <%= settings.api.client.coins.store.ram.per * 7 %>MB
+                                                                        RAM -
+                                                                        $<%= settings.api.client.coins.store.ram.cost *
+                                                                            7 %>
+                                                                </option>
+                                                                <option value=8>
+                                                                    <%= settings.api.client.coins.store.ram.per * 8 %>MB
+                                                                        RAM -
+                                                                        $<%= settings.api.client.coins.store.ram.cost *
+                                                                            8 %>
+                                                                </option>
+                                                                <option value=9>
+                                                                    <%= settings.api.client.coins.store.ram.per * 9 %>MB
+                                                                        RAM -
+                                                                        $<%= settings.api.client.coins.store.ram.cost *
+                                                                            9 %>
+                                                                </option>
+                                                                <option value=10>
+                                                                    <%= settings.api.client.coins.store.ram.per * 10 %>
+                                                                        MB RAM -
+                                                                        $<%= settings.api.client.coins.store.ram.cost *
+                                                                            10 %>
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                        <button type="submit"
+                                                            class="btn btn-outline-default">Buy</button>
+                                                    </form>
+                                                    <br><br><br><br>
+                                                    <form action="/buydisk">
+                                                        <div class="form-group">
+                                                            <label for="buydisk">Disk</label>
+                                                            <select class="form-control" name="amount">
+                                                                <option value=1>
+                                                                    <%= settings.api.client.coins.store.disk.per %>MB
+                                                                        Disk - $<%=
+                                                                            settings.api.client.coins.store.disk.cost %>
+                                                                            <%= settings.api.client.coins.store.disk.cost==1
+                                                                                ? "" : "s" %>
+                                                                </option>
+                                                                <option value=2>
+                                                                    <%= settings.api.client.coins.store.disk.per * 2 %>
+                                                                        MB Disk - $<%=
+                                                                            settings.api.client.coins.store.disk.cost *
+                                                                            2 %>
+                                                                </option>
+                                                                <option value=3>
+                                                                    <%= settings.api.client.coins.store.disk.per * 3 %>
+                                                                        MB Disk - $<%=
+                                                                            settings.api.client.coins.store.disk.cost *
+                                                                            3 %>
+                                                                </option>
+                                                                <option value=4>
+                                                                    <%= settings.api.client.coins.store.disk.per * 4 %>
+                                                                        MB Disk - $<%=
+                                                                            settings.api.client.coins.store.disk.cost *
+                                                                            4 %>
+                                                                </option>
+                                                                <option value=5>
+                                                                    <%= settings.api.client.coins.store.disk.per * 5 %>
+                                                                        MB Disk - $<%=
+                                                                            settings.api.client.coins.store.disk.cost *
+                                                                            5 %>
+                                                                </option>
+                                                                <option value=6>
+                                                                    <%= settings.api.client.coins.store.disk.per * 6 %>
+                                                                        MB Disk - $<%=
+                                                                            settings.api.client.coins.store.disk.cost *
+                                                                            6 %>
+                                                                </option>
+                                                                <option value=7>
+                                                                    <%= settings.api.client.coins.store.disk.per * 7 %>
+                                                                        MB Disk - $<%=
+                                                                            settings.api.client.coins.store.disk.cost *
+                                                                            7 %>
+                                                                </option>
+                                                                <option value=8>
+                                                                    <%= settings.api.client.coins.store.disk.per * 8 %>
+                                                                        MB Disk - $<%=
+                                                                            settings.api.client.coins.store.disk.cost *
+                                                                            8 %>
+                                                                </option>
+                                                                <option value=9>
+                                                                    <%= settings.api.client.coins.store.disk.per * 9 %>
+                                                                        MB Disk - $<%=
+                                                                            settings.api.client.coins.store.disk.cost *
+                                                                            9 %>
+                                                                </option>
+                                                                <option value=10>
+                                                                    <%= settings.api.client.coins.store.disk.per * 10 %>
+                                                                        MB Disk - $<%=
+                                                                            settings.api.client.coins.store.disk.cost *
+                                                                            10 %>
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                        <button type="submit"
+                                                            class="btn btn-outline-default">Buy</button>
+                                                    </form>
+                                                    <br><br><br><br>
+                                                    <form action="/buycpu">
+                                                        <div class="form-group">
+                                                            <label for="buycpu">CPU</label>
+                                                            <select class="form-control" name="amount">
+                                                                <option value=1>
+                                                                    <%= settings.api.client.coins.store.cpu.per %>% CPU
+                                                                        -
+                                                                        $<%= settings.api.client.coins.store.cpu.cost %>
+                                                                            <%= settings.api.client.coins.store.cpu.cost==1
+                                                                                ? "" : "s" %>
+                                                                </option>
+                                                                <option value=2>
+                                                                    <%= settings.api.client.coins.store.cpu.per * 2 %>%
+                                                                        CPU -
+                                                                        $<%= settings.api.client.coins.store.cpu.cost *
+                                                                            2 %>
+                                                                </option>
+                                                                <option value=3>
+                                                                    <%= settings.api.client.coins.store.cpu.per * 3 %>%
+                                                                        CPU -
+                                                                        $<%= settings.api.client.coins.store.cpu.cost *
+                                                                            3 %>
+                                                                </option>
+                                                                <option value=4>
+                                                                    <%= settings.api.client.coins.store.cpu.per * 4 %>%
+                                                                        CPU -
+                                                                        $<%= settings.api.client.coins.store.cpu.cost *
+                                                                            4 %>
+                                                                </option>
+                                                                <option value=5>
+                                                                    <%= settings.api.client.coins.store.cpu.per * 5 %>%
+                                                                        CPU -
+                                                                        $<%= settings.api.client.coins.store.cpu.cost *
+                                                                            5 %>
+                                                                </option>
+                                                                <option value=6>
+                                                                    <%= settings.api.client.coins.store.cpu.per * 6 %>%
+                                                                        CPU -
+                                                                        $<%= settings.api.client.coins.store.cpu.cost *
+                                                                            6 %>
+                                                                </option>
+                                                                <option value=7>
+                                                                    <%= settings.api.client.coins.store.cpu.per * 7 %>%
+                                                                        CPU -
+                                                                        $<%= settings.api.client.coins.store.cpu.cost *
+                                                                            7 %>
+                                                                </option>
+                                                                <option value=8>
+                                                                    <%= settings.api.client.coins.store.cpu.per * 8 %>%
+                                                                        CPU -
+                                                                        $<%= settings.api.client.coins.store.cpu.cost *
+                                                                            8 %>
+                                                                </option>
+                                                                <option value=9>
+                                                                    <%= settings.api.client.coins.store.cpu.per * 9 %>%
+                                                                        CPU -
+                                                                        $<%= settings.api.client.coins.store.cpu.cost *
+                                                                            9 %>
+                                                                </option>
+                                                                <option value=10>
+                                                                    <%= settings.api.client.coins.store.cpu.per * 10 %>%
+                                                                        CPU -
+                                                                        $<%= settings.api.client.coins.store.cpu.cost *
+                                                                            10 %>
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                        <button type="submit"
+                                                            class="btn btn-outline-default">Buy</button>
+                                                    </form>
+                                                    <br><br><br><br>
+                                                    <form action="/buyservers">
+                                                        <div class="form-group">
+                                                            <label for="buyservers">Servers</label>
+                                                            <select class="form-control" name="amount">
+                                                                <option value=1>
+                                                                    <%= settings.api.client.coins.store.servers.per %>
+                                                                        server -
+                                                                        $<%= settings.api.client.coins.store.servers.cost
+                                                                            %>
+                                                                            <%= settings.api.client.coins.store.servers.cost==1
+                                                                                ? "" : "s" %>
+                                                                </option>
+                                                                <option value=2>
+                                                                    <%= settings.api.client.coins.store.servers.per * 2
+                                                                        %> servers -
+                                                                        $<%= settings.api.client.coins.store.servers.cost
+                                                                            * 2 %>
+                                                                </option>
+                                                                <option value=3>
+                                                                    <%= settings.api.client.coins.store.servers.per * 3
+                                                                        %> servers -
+                                                                        $<%= settings.api.client.coins.store.servers.cost
+                                                                            * 3 %>
+                                                                </option>
+                                                                <option value=4>
+                                                                    <%= settings.api.client.coins.store.servers.per * 4
+                                                                        %> servers -
+                                                                        $<%= settings.api.client.coins.store.servers.cost
+                                                                            * 4 %>
+                                                                </option>
+                                                                <option value=5>
+                                                                    <%= settings.api.client.coins.store.servers.per * 5
+                                                                        %> servers -
+                                                                        $<%= settings.api.client.coins.store.servers.cost
+                                                                            * 5 %>
+                                                                </option>
+                                                                <option value=6>
+                                                                    <%= settings.api.client.coins.store.servers.per * 6
+                                                                        %> servers -
+                                                                        $<%= settings.api.client.coins.store.servers.cost
+                                                                            * 6 %>
+                                                                </option>
+                                                                <option value=7>
+                                                                    <%= settings.api.client.coins.store.servers.per * 7
+                                                                        %> servers -
+                                                                        $<%= settings.api.client.coins.store.servers.cost
+                                                                            * 7 %>
+                                                                </option>
+                                                                <option value=8>
+                                                                    <%= settings.api.client.coins.store.servers.per * 8
+                                                                        %> servers -
+                                                                        $<%= settings.api.client.coins.store.servers.cost
+                                                                            * 8 %>
+                                                                </option>
+                                                                <option value=9>
+                                                                    <%= settings.api.client.coins.store.servers.per * 9
+                                                                        %> servers -
+                                                                        $<%= settings.api.client.coins.store.servers.cost
+                                                                            * 9 %>
+                                                                </option>
+                                                                <option value=10>
+                                                                    <%= settings.api.client.coins.store.servers.per * 10
+                                                                        %> servers
+                                                                        - $<%=
+                                                                            settings.api.client.coins.store.servers.cost
+                                                                            * 10 %>
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                        <button type="submit"
+                                                            class="btn btn-outline-default">Buy</button>
+                                                    </form>
+                                                </div>
+                                                <script>
+                                                    async function submitForm() {
+                                                        let name = encodeURIComponent(document.getElementById("name").value);
+                                                        let egg = encodeURIComponent(document.getElementById("egg").value);
+                                                        let ram = encodeURIComponent(document.getElementById("ram").value);
+                                                        let disk = encodeURIComponent(document.getElementById("disk").value);
+                                                        let cpu = encodeURIComponent(document.getElementById("cpu").value);
+                                                        let location = encodeURIComponent(document.getElementById("location").value);
+                                                        document.location.href =
+                                                            `/create?name=${name}&egg=${egg}&ram=${ram}&disk=${disk}&cpu=${cpu}&location=${location}`;
+                                                    };
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <%- include('./components/footer') %>
+                                </div>
+                                <%- include('./elements/changePassword') %> <%- include('./elements/fixedPlugin') %>
+            </main>
+            <%- include('./components/scripts') %>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<html lang="en">
+  <head>
+    <title>Edit Server- <%= extra.name %></title>
+    <%- include('./components/sources') %>
+  </head>
+
+  <body class="g-sidenav-show bg-black-100 dark-version">
+    <div class="min-height-300 bs-dark position-absolute w-100"></div>
+    <%- include('./elements/dashboard/sidebar') %>
+    <main class="main-content position-relative border-radius-lg ps">
+      <%- include('./components/navbar') %>
+      <!-- End Logo Header -->
+      <div class="container-fluid py-4">
+        <!-- Navbar Header -->
+        <%- include('./components/header') %> <%- include('./components/onload')
+        %>
+      </div>
+      <!-- End Sidebar -->
+      <% let ram=0; let disk=0; let cpu=0; let
+      servers=pterodactyl.relationships.servers.data.length; for (let i=0,
+      len=pterodactyl.relationships.servers.data.length; i < len; i++) { ram=ram
+      + (typeof
+      pterodactyl.relationships.servers.data[i].attributes.limits.memory=="number"
+      ? pterodactyl.relationships.servers.data[i].attributes.limits.memory : 0);
+      disk=disk + (typeof
+      pterodactyl.relationships.servers.data[i].attributes.limits.disk=="number"
+      ? pterodactyl.relationships.servers.data[i].attributes.limits.disk : 0);
+      cpu=cpu + (typeof
+      pterodactyl.relationships.servers.data[i].attributes.limits.cpu=="number"
+      ? pterodactyl.relationships.servers.data[i].attributes.limits.cpu : 0); }
+      %>
+      <div class="container-fluid mt-4 row">
+        <div class="col-12">
+          <div class="card mb-4">
+            <div class="card-header">
+              <div class="card-title">Edit Server</div>
+            </div>
+            <div class="card-body">
+              <% if (req.query.id) { %> <% if
+              (pterodactyl.relationships.servers.data.filter(name=>
+              name.attributes.id == req.query.id).length == 1) { let serverinfo
+              = pterodactyl.relationships.servers.data.filter(name =>
+              name.attributes.id == req.query.id)[0]; let attemptegg = null; let
+              attemptname = null; for (let [name, value] of
+              Object.entries(settings.api.client.eggs)) { if
+              (settings.api.client.eggs[name].info.egg ==
+              serverinfo.attributes.egg) { attemptegg =
+              settings.api.client.eggs[name]; attemptname = name; }; }; let
+              egginfo = attemptegg ? attemptegg.display : "???"; %>
+              <p class="mb-2">
+                Server Name: <b><%= serverinfo.attributes.name %></b>
+              </p>
+              <p class="mb-2">Server Type: <b><%= egginfo %></b></p>
+              <p class="mb-2">
+                RAM:
+                <input
+                  class="form-control"
+                  id="ram"
+                  value="<%= serverinfo.attributes.limits.memory %>"
+                />
+              </p>
+              <p class="mb-2">
+                Disk:
+                <input
+                  class="form-control"
+                  id="disk"
+                  value="<%= serverinfo.attributes.limits.disk %>"
+                />
+              </p>
+              <p class="mb-2">
+                CPU:
+                <input
+                  class="form-control"
+                  id="cpu"
+                  value="<%= serverinfo.attributes.limits.cpu %>"
+                />
+              </p>
+              <br />
+              <div style="text-align: center">
+                <button onclick="submitForm()" class="btn btn-outline-primary">
+                  Modify Server
+                </button>
+              </div>
+              <br />
+            </div>
+            <script>
+              async function submitForm() {
+                let ram = encodeURIComponent(
+                  document.getElementById("ram").value
+                );
+                let disk = encodeURIComponent(
+                  document.getElementById("disk").value
+                );
+                let cpu = encodeURIComponent(
+                  document.getElementById("cpu").value
+                );
+                document.location.href = `/modify?id=<%= req.query.id %>&ram=${ram}&disk=${disk}&cpu=${cpu}`;
+              }
+            </script>
+            <% } else { %>
+            <p style="margin-left: 5%">
+              Could not find server with the provided ID.
+            </p>
+            <% } %> <% } else { %>
+            <p style="margin-left: 5%">Missing server ID.</p>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </main>
+    <%- include('./components/scripts') %>
+  </body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        Dashboard - <%= extra.name %>
+    </title>
+    <%- include('./components/sources') %>
+</head>
+
+<body class="g-sidenav-show dark-version">
+    <div class="min-height-300 bs-dark position-absolute w-100"></div>
+    <%- include('./elements/dashboard/sidebar') %>
+        <main class="main-content position-relative border-radius-lg ps">
+            <!-- Navbar -->
+            <%- include('./components/navbar') %>
+                <!-- End Navbar -->
+                <div class="container-fluid py-4">
+                    <%- include('./components/header') %>
+                        <%- include('./components/onload') %>
+                            <div class="row mt-4">
+                                <div class="col-lg-7 mb-lg-0 mb-4">
+                                    <div class="card z-index-2 h-100">
+                                        <div class="card-header pb-0 pt-3 bg-transparent">
+                                            <h6 class="text-capitalize">Announcements</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <div class="chart">
+                                                <p class="text-sm mb-0">
+                                                    <span class="font-weight-bold">Dear
+                                                        <%=req.session.userinfo.username%>,
+                                                    </span>
+                                                </p>
+                                            </div>
+                                            <div class="chart">
+                                                <p class="text-sm mb-0">
+                                                    <span class="font-weight-bold">
+                                                        ⁍ Please take daily servers backups <br>
+                                                        ⁍ Use this link for earn resources <br>
+                                                        ⁍ Join our Discord for support <br>
+                                                        ⁍ Join our Development Team <br>
+                                                        ⁍ Check our FAQ for backup guidelines
+                                                    </span>
+                                                </p>
+                                            </div>
+                                            <div class="chart">
+                                                <p class="text-sm mb-0">
+                                                    <span class="font-weight-bold"> <br>
+                                                        Thank you for choosing our platform
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="card card-carousel overflow-hidden h-100 p-0">
+                                        <div id="carouselExampleCaptions" class="carousel slide h-100"
+                                            data-bs-ride="carousel">
+                                            <div class="carousel-inner border-radius-lg h-100">
+                                                <div class="carousel-item h-100 active"
+                                                    style="background-image: url('/assets/img/image-1.gif'); background-size: cover;">
+                                                    <div
+                                                        class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
+                                                        <div
+                                                            class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
+                                                            <i class="ni ni-camera-compact text-dark opacity-10"></i>
+                                                        </div>
+                                                        <h5 class="text-white mb-1">Get started
+                                                            with
+                                                            <%= extra.name %>
+                                                        </h5>
+                                                        <p>Click on "Create Server" to Create
+                                                            your
+                                                            Server.
+                                                            We hope you enjoy your stay.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="carousel-item h-100"
+                                                    style="background-image: url('/assets/img/image-2.gif'); background-size: cover;">
+                                                    <div
+                                                        class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
+                                                        <div
+                                                            class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
+                                                            <i class="ni ni-bulb-61 text-dark opacity-10"></i>
+                                                        </div>
+                                                        <h5 class="text-white mb-1">Fastest way
+                                                            to
+                                                            create
+                                                            Servers</h5>
+                                                        <p>You can create Minecraft Servers for
+                                                            free.
+                                                            And
+                                                            handle it on Game
+                                                            Panel.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev w-5 me-3" type="button"
+                                                data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next w-5 me-3" type="button"
+                                                data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-lg-7 mb-lg-0 mb-4">
+                                    <div class="card ">
+                                        <div class="card-header pb-0 p-3">
+                                            <div class="d-flex justify-content-between">
+                                                <h6 class="mb-2">Game Servers</h6>
+                                            </div>
+                                        </div>
+
+                                        <div class="table-responsive">
+                                            <table class="table align-items-center ">
+                                                <tbody id="nodeList"></tbody>
+                                                <tr>
+                                                    <script>
+                                                        async function fetchNodes() {
+                                                            const response = await fetch("/api/nodes");
+                                                            const data = await response.json();
+
+                                                            const nodeList = document.getElementById("nodeList");
+                                                            for (const node of data.nodes) {
+                                                                const statusClass = node.status === "online" ? "text-success" : "text-danger";
+                                                                const newRow = document.createElement("tr");
+                                                                newRow.innerHTML = `
+                                                                    <td class="w-30">
+                                                                        <div
+                                                                            class="d-flex px-2 py-1 align-items-center">
+                                                                            <div>
+                                                                                <p></p>
+                                                                            </div>
+                                                                            <div class="ms-4">
+                                                                                <p
+                                                                                    class="text-xs font-weight-bold mb-0">
+                                                                                    Name:</p>
+                                                                                <h6 class="text-sm mb-0">
+                                                                                    ${node.name}
+                                                                                </h6>  
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td class="w-30">
+                                                                        <div
+                                                                            class="d-flex px-2 py-1 align-items-center">
+                                                                            <div>
+                                                                                <p></p>
+                                                                            </div>
+                                                                            <div class="ms-4">
+                                                                                <p
+                                                                                    class="text-xs font-weight-bold mb-0">
+                                                                                    Domain:</p>
+                                                                                <h6 class="text-sm mb-0">
+                                                                                    ${node.fqdn}
+                                                                                </h6>
+                                                                            </div>
+                                                                        </div> 
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="text-center">
+                                                                            <p class="text-xs font-weight-bold mb-0">
+                                                                                Online:</p>
+                                                                            <h6 class="text-sm mb-0">
+                                                                                ${node.status}
+                                                                            </h6>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="text-center">
+                                                                            <p class="text-xs font-weight-bold mb-0">
+                                                                                Ram:
+                                                                            </p>
+                                                                            <h6 class="text-sm mb-0">
+                                                                                ${node.memory} MB
+                                                                            </h6>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="text-center">
+                                                                            <p class="text-xs font-weight-bold mb-0">
+                                                                                Disk:
+                                                                            </p>
+                                                                            <h6 class="text-sm mb-0">
+                                                                                ${node.disk} MB
+                                                                            </h6>
+                                                                        </div>
+                                                                    </td>
+                                                                  `;
+                                                                nodeList.appendChild(newRow);
+                                                            }
+                                                        }
+                                                        fetchNodes();
+                                                    </script>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="card">
+                                        <div class="card-header pb-0 p-3">
+                                            <h6 class="mb-0">Categories</h6>
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <ul class="list-group">
+                                                <li
+                                                    class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                                    <div class="d-flex align-items-center">
+                                                        <div
+                                                            class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
+                                                            <i class="ni ni-mobile-button text-white opacity-10"></i>
+                                                        </div>
+                                                        <div class="d-flex flex-column">
+                                                            <h6 class="mb-1 text-dark text-sm">
+                                                                Earn
+                                                                Coins
+                                                            </h6>
+                                                            <span class="text-xs font-weight-bold">Earn
+                                                                Coins here
+                                                                to increase
+                                                                resources</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <button
+                                                            class="btn btn-link btn-icon-only btn-rounded btn-sm icon-move-right my-auto text-white"><a
+                                                                href="/earn"><i class="ni ni-bold-right"
+                                                                    aria-hidden="true"></i></a></button>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                                    <div class="d-flex align-items-center">
+                                                        <div
+                                                            class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
+                                                            <i class="ni ni-tag text-white opacity-10"></i>
+                                                        </div>
+                                                        <div class="d-flex flex-column">
+                                                            <h6 class="mb-1 text-dark text-sm">
+                                                                Tickets
+                                                            </h6>
+                                                            <span class="text-xs">+ 400 closed,
+                                                                <span class="font-weight-bold">+
+                                                                    3
+                                                                    open, any support open it on
+                                                                    Discord</span></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <button
+                                                            class="btn btn-link btn-icon-only btn-rounded btn-sm icon-move-right my-auto text-white"><a
+                                                                href="<%= extra.discord.invite_link%>"
+                                                                target="_blank"><i class="ni ni-bold-right"
+                                                                    aria-hidden="true"></a></i></button>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                                    <div class="d-flex align-items-center">
+                                                        <div
+                                                            class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
+                                                            <i class="ni ni-box-2 text-white opacity-10"></i>
+                                                        </div>
+                                                        <div class="d-flex flex-column">
+                                                            <h6 class="mb-1 text-dark text-sm">
+                                                                Game
+                                                                Panel
+                                                            </h6>
+                                                            <span class="text-xs">Manage your
+                                                                game
+                                                                servers
+                                                                here, <span class="font-weight-bold">with
+                                                                    many tools</span></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <button
+                                                            class="btn btn-link btn-icon-only btn-rounded btn-sm icon-move-right my-auto text-white">
+                                                            <a href="https://console.<%= extra.name %>.tech"
+                                                                target="_blank">
+                                                                <i class="ni ni-bold-right" aria-hidden="true"></i>
+                                                            </a>
+                                                        </button>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">
+                                                    <div class="d-flex align-items-center">
+                                                        <div
+                                                            class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
+                                                            <i class="ni ni-satisfied text-white opacity-10"></i>
+                                                        </div>
+                                                        <div class="d-flex flex-column">
+                                                            <h6 class="mb-1 text-dark text-sm">
+                                                                Join
+                                                                For
+                                                                Resources</h6>
+                                                            <span class="text-xs font-weight-bold">Join
+                                                                Discord Servers for extra
+                                                                rewards</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <button
+                                                            class="btn btn-link btn-icon-only btn-rounded btn-sm icon-move-right my-auto text-white"><a
+                                                                href="/join" target="_blank"><i class="ni ni-bold-right"
+                                                                    aria-hidden="true"></i></a></button>
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">
+                                                    <div class="d-flex align-items-center">
+                                                        <div
+                                                            class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
+                                                            <i class="ni ni-satisfied text-white opacity-10"></i>
+                                                        </div>
+                                                        <div class="d-flex flex-column">
+                                                            <h6 class="mb-1 text-dark text-sm">
+                                                                Redeem
+                                                                Code
+                                                            </h6>
+                                                            <span class="text-xs font-weight-bold">Redeem
+                                                                your Coupen Codes Here</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <button
+                                                            class="btn btn-link btn-icon-only btn-rounded btn-sm icon-move-right my-auto text-white"><a
+                                                                href="/redeem" target="_blank">
+                                                                <i class="ni ni-bold-right" aria-hidden="true"></i></a>
+                                                        </button>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <%- include('./components/footer') %>
+                </div>
+                <%- include('./elements/changePassword') %>
+                    <%- include('./elements/fixedPlugin') %>
+        </main>
+        <%- include('./components/scripts') %>
+</body>
+
+</html>
