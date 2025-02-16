@@ -1,3 +1,3 @@
-# Adding better tooltips
+# Enhancing offline support
 
-_Last updated: 2025-02-16T17:40:29.819Z_
+_Last updated: 2025-02-16T17:40:59.855Z_
