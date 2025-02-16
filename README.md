@@ -1,3 +1,3 @@
-# Improving keyboard accessibility
+# Improving text formatting
 
-_Last updated: 2025-02-16T13:04:55.223Z_
+_Last updated: 2025-02-16T13:05:25.207Z_
