@@ -1,3 +1,3 @@
-# Refactoring background jobs
+# Fixing missing semicolons
 
-_Last updated: 2025-02-16T21:52:34.105Z_
+_Last updated: 2025-02-16T21:53:04.089Z_
