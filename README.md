@@ -1,3 +1,3 @@
-# Fixing internationalization issues
+# Minor text update
 
-_Last updated: 2025-02-16T12:18:54.568Z_
+_Last updated: 2025-02-16T12:19:24.500Z_
