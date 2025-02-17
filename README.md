@@ -1,3 +1,3 @@
-# Adding fallback mechanisms
+# Removing deprecated functions
 
-_Last updated: 2025-02-17T21:16:58.062Z_
+_Last updated: 2025-02-17T21:17:28.187Z_
