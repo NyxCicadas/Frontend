@@ -1,3 +1,3 @@
-# Fixing event listener memory leaks
+# Refactoring background jobs
 
-_Last updated: 2025-02-17T08:14:00.066Z_
+_Last updated: 2025-02-17T08:14:30.061Z_
