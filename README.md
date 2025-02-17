@@ -1,3 +1,3 @@
-# Refactoring background jobs
+# Updating documentation formatting
 
-_Last updated: 2025-02-17T16:34:54.358Z_
+_Last updated: 2025-02-17T16:35:24.351Z_
