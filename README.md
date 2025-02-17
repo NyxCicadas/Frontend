@@ -1,3 +1,3 @@
-# Simplifying function logic
+# Updating API request parameters
 
-_Last updated: 2025-02-17T22:17:29.505Z_
+_Last updated: 2025-02-17T22:17:59.695Z_
