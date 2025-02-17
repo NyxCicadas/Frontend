@@ -1,3 +1,3 @@
-# Fixing layout inconsistencies
+# Fixing internationalization issues
 
-_Last updated: 2025-02-17T23:04:00.340Z_
+_Last updated: 2025-02-17T23:04:30.197Z_
