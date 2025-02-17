@@ -1,3 +1,3 @@
-# Fixing typos in documentation
+# Fixing compatibility issues
 
-_Last updated: 2025-02-17T23:53:48.427Z_
+_Last updated: 2025-02-17T23:53:58.217Z_
