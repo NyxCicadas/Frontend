@@ -1,3 +1,3 @@
-# Minor text update
+# Updating API request parameters
 
-_Last updated: 2025-02-17T20:06:56.868Z_
+_Last updated: 2025-02-17T20:07:26.899Z_
