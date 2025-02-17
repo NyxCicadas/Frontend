@@ -1,3 +1,3 @@
-# Optimizing SQL queries
+# Removing deprecated functions
 
-_Last updated: 2025-02-17T23:48:08.052Z_
+_Last updated: 2025-02-17T23:48:17.848Z_
