@@ -1,3 +1,3 @@
-# Fixing event listener memory leaks
+# Reducing bundle size
 
-_Last updated: 2025-02-17T13:52:22.157Z_
+_Last updated: 2025-02-17T13:52:52.188Z_
