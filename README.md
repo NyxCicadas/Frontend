@@ -1,3 +1,3 @@
-# Updating dependencies
+# Fixing typos in documentation
 
-_Last updated: 2025-02-17T18:16:26.096Z_
+_Last updated: 2025-02-17T18:17:01.454Z_
