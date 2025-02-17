@@ -1,3 +1,3 @@
-# Refactoring file structure
+# Fixing UI glitches
 
-_Last updated: 2025-02-17T23:11:30.510Z_
+_Last updated: 2025-02-17T23:12:00.404Z_
