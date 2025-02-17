@@ -1,3 +1,3 @@
-# Adding drag-and-drop functionality
+# Fixing event listener memory leaks
 
-_Last updated: 2025-02-17T20:39:27.241Z_
+_Last updated: 2025-02-17T20:39:57.287Z_
