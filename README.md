@@ -1,3 +1,3 @@
-# Adding multi-language support
+# Removing deprecated functions
 
-_Last updated: 2025-02-17T14:43:52.753Z_
+_Last updated: 2025-02-17T14:44:22.762Z_
