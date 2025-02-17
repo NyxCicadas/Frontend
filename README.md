@@ -1,3 +1,3 @@
-# Fixing permission issues
+# Fixing internationalization issues
 
-_Last updated: 2025-02-17T16:46:24.617Z_
+_Last updated: 2025-02-17T16:46:54.658Z_
