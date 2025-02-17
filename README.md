@@ -1,3 +1,3 @@
-# Improving keyboard accessibility
+# Fixing event listener memory leaks
 
-_Last updated: 2025-02-17T05:02:40.019Z_
+_Last updated: 2025-02-17T05:03:10.071Z_
