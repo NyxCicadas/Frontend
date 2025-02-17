@@ -1,3 +1,3 @@
-# Refining logging mechanism
+# Updating documentation formatting
 
-_Last updated: 2025-02-17T12:49:21.360Z_
+_Last updated: 2025-02-17T12:49:51.680Z_
