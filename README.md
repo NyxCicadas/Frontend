@@ -1,3 +1,3 @@
-# Refactoring component structure
+# Fixing UI glitches
 
-_Last updated: 2025-02-17T22:51:30.127Z_
+_Last updated: 2025-02-17T22:52:00.161Z_
