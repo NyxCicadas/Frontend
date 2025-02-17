@@ -1,3 +1,3 @@
-# Improving database indexing
+# Improving keyboard accessibility
 
-_Last updated: 2025-02-17T16:51:24.740Z_
+_Last updated: 2025-02-17T16:51:54.792Z_
