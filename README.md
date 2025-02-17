@@ -1,3 +1,3 @@
-# Updating API request parameters
+# Fixing timezone-related issues
 
-_Last updated: 2025-02-17T19:00:55.840Z_
+_Last updated: 2025-02-17T19:01:26.052Z_
