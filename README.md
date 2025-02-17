@@ -1,3 +1,3 @@
-# Enhancing dark mode support
+# Fixing broken links in README
 
-_Last updated: 2025-02-17T22:25:59.687Z_
+_Last updated: 2025-02-17T22:26:29.621Z_
