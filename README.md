@@ -1,3 +1,3 @@
-# Fixing minor bugs
+# Updating API request parameters
 
-_Last updated: 2025-02-17T17:18:54.743Z_
+_Last updated: 2025-02-17T17:19:24.358Z_
