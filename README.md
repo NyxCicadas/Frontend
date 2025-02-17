@@ -1,3 +1,3 @@
-# Adding fallback mechanisms
+# Fixing typos in documentation
 
-_Last updated: 2025-02-17T21:21:58.211Z_
+_Last updated: 2025-02-17T21:22:28.284Z_
