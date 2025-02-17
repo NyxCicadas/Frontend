@@ -1,3 +1,3 @@
-# Optimizing README file
+# Fixing event listener memory leaks
 
-_Last updated: 2025-02-17T18:53:55.807Z_
+_Last updated: 2025-02-17T18:54:25.716Z_
