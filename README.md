@@ -1,3 +1,3 @@
-# Adding drag-and-drop functionality
+# Updating documentation formatting
 
-_Last updated: 2025-02-17T16:47:24.934Z_
+_Last updated: 2025-02-17T16:47:54.660Z_
