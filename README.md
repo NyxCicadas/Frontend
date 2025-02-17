@@ -1,3 +1,3 @@
-# Updating changelog
+# Adding missing documentation
 
-_Last updated: 2025-02-17T04:29:39.388Z_
+_Last updated: 2025-02-17T04:30:09.502Z_
