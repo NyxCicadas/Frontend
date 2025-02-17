@@ -1,3 +1,3 @@
-# Reducing bundle size
+# Improving function modularity
 
-_Last updated: 2025-02-17T20:10:56.998Z_
+_Last updated: 2025-02-17T20:11:26.904Z_
