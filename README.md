@@ -1,3 +1,3 @@
-# Adding more content
+# Removing deprecated functions
 
-_Last updated: 2025-02-17T09:10:22.563Z_
+_Last updated: 2025-02-17T09:10:45.432Z_
