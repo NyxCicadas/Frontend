@@ -1,3 +1,3 @@
-# Fixing pagination bugs
+# Fixing broken links in README
 
-_Last updated: 2025-02-17T18:03:55.094Z_
+_Last updated: 2025-02-17T18:04:25.117Z_
