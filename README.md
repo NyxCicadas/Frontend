@@ -1,3 +1,3 @@
-# Improving API documentation
+# Optimizing CSS rules
 
-_Last updated: 2025-02-17T21:14:58.079Z_
+_Last updated: 2025-02-17T21:15:28.114Z_
