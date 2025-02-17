@@ -1,3 +1,3 @@
-# Updating example code snippets
+# Fixing image rendering issues
 
-_Last updated: 2025-02-17T06:14:58.756Z_
+_Last updated: 2025-02-17T06:15:28.984Z_
