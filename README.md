@@ -1,3 +1,3 @@
-# Fixing inconsistencies in data
+# Fixing event listener memory leaks
 
-_Last updated: 2025-02-17T17:19:54.285Z_
+_Last updated: 2025-02-17T17:20:24.257Z_
