@@ -1,3 +1,3 @@
-# Refactor README.md
+# Adding proper error messages
 
-_Last updated: 2025-02-17T15:42:53.701Z_
+_Last updated: 2025-02-17T15:43:23.754Z_
