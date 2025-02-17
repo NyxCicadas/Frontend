@@ -1,3 +1,3 @@
-# Adjusting styling for better UX
+# Adding proper error messages
 
-_Last updated: 2025-02-17T10:08:32.033Z_
+_Last updated: 2025-02-17T10:09:02.020Z_
