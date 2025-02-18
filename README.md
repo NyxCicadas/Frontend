@@ -1,3 +1,3 @@
-# Refactoring network request handling
+# Fixing event listener memory leaks
 
-_Last updated: 2025-02-18T00:26:20.117Z_
+_Last updated: 2025-02-18T00:26:30.063Z_
