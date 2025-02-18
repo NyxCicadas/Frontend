@@ -1,3 +1,3 @@
-# Reducing bundle size
+# Refactoring role-based access control
 
-_Last updated: 2025-02-18T00:32:53.517Z_
+_Last updated: 2025-02-18T00:33:03.086Z_
