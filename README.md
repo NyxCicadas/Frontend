@@ -1,3 +1,3 @@
-# Improving API documentation
+# Minor text update
 
-_Last updated: 2025-02-18T01:12:55.248Z_
+_Last updated: 2025-02-18T01:13:05.270Z_
