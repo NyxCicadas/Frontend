@@ -1,3 +1,3 @@
-# Reducing bundle size
+# Fixing UI glitches
 
-_Last updated: 2025-02-18T01:35:39.832Z_
+_Last updated: 2025-02-18T01:35:49.905Z_
