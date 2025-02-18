@@ -1,3 +1,3 @@
-# Fixing race conditions in async code
+# Improving session handling
 
-_Last updated: 2025-02-18T01:50:30.733Z_
+_Last updated: 2025-02-18T01:50:40.744Z_
