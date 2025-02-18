@@ -1,3 +1,3 @@
-# Updating API request parameters
+# Fixing broken links in README
 
-_Last updated: 2025-02-18T00:38:04.186Z_
+_Last updated: 2025-02-18T00:38:13.643Z_
