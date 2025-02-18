@@ -1,3 +1,3 @@
-# Fixing event listener memory leaks
+# Improving SEO metadata
 
-_Last updated: 2025-02-18T01:51:30.852Z_
+_Last updated: 2025-02-18T01:51:41.144Z_
